@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* Reset CSS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        .header-left h1 {
+            font-size: 24px;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Sidebar */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .sidebar {
+            flex: 2;
+            min-width: 200px;
+            max-width: 300px;
+            background-color: #eee;
+            padding: 10px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li a {
+            display: block;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        ul li a:hover {
+            background-color: #f2f2f2;
+        }
+
+        /* Main content */
+
+        .col-md-10 {
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+
+        .breadcrumb {
+            border: 0px !important;
+            background-color: #eee;
+            padding: 8px 15px;
+            margin-bottom: 20px;
+            list-style: none;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+        }
+
+
+        .box {
+            background-color: #27a9e3;
+            padding: 20px;
+            color: white;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .iconsize {
+            font-size: 40px;
+            color: #FFD215;
+            text-align: center;
+        }
+
+        p {
+            margin: 0 0 10px;
+        }
+
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                min-width: 100%;
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .main-content {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <h1>INVOICE MANAGEMENT SYSTEM</h1>
+        </div>
+        <div class="header-right">
+            <div class="dropdown">
+                <button class="dropbtn">Welcome Admin</button>
+                <div class="dropdown-content">
+                    <a href="changepass.html">Change Password</a>
+                    <a href="#" onclick="logout()">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="dashboard.html">Home</a></li>
+                <li><a href="products.html">Create Products</a></li>
+                <li><a href="changepass.html">Change Password</a></li>
+            </ul>
+        </div>
+        <div class="col-md-10">
+            <h3 class="text-danger">Dashboard</h3>
+            <div class="breadcrumb">
+                <span><i class="fa fa-home" aria-hidden="true"></i>&nbsp; Home &nbsp; &gt; &nbsp; Dashboard </span>
+            </div>
+
+            <div>
+                <div class="box">
+                    <p>Total Customers &nbsp;: &nbsp; 0</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="box">
+                    <p>Total Products Sells &nbsp;: &nbsp; 0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="logout.js"></script>
+
+</body>
+
+</html>

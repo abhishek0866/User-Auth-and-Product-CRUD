@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/admincss.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/jquery-ui.css" rel="stylesheet">
+    <title>Hello, world!</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container-fluid {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .row {
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .header {
+            background-color: #43609c !important;
+            color: white;
+            font-weight: bold;
+        }
+
+        .col-md-4 {
+            width: 33.33333333%;
+        }
+
+        h4 {
+            font-size: 18px;
+        }
+
+        .right {
+            float: right;
+            position: relative;
+            left: 850px;
+            bottom: 20px;
+        }
+
+        .caret {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-left: 2px;
+            vertical-align: middle;
+            border-top: 4px dashed;
+            border-top: 4px solid\9;
+            border-right: 4px solid transparent;
+            border-left: 4px solid transparent;
+        }
+
+        .dropdown_admin_box {
+            display: none;
+            position: absolute;
+            right: 0px;
+            top: 40px;
+            z-index: 10;
+            background-color: #C5B1B1;
+            padding: 10px;
+        }
+
+        p {
+            margin: 0 0 10px;
+        }
+
+        .sidebar {
+            background: #29384D !important;
+        }
+
+        .sidebar ul {
+            padding: 0px;
+        }
+
+        .sidebar a,
+        li {
+            color: white;
+            font-weight: bold;
+        }
+
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        .header-left h1 {
+            font-size: 24px;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Start header section  -->
+    <header>
+        <div class="header-left">
+            <h1>INVOICE MANAGEMENT SYSTEM</h1>
+        </div>
+        <div class="header-right">
+            <div class="dropdown">
+                <button class="dropbtn">Welcome Admin</button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="logout()">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header section  -->
+
+    <!--Start Container-->
+    <div class="container-fluid">
+        <div class="row">
+            <!--Start include sidebar file-->
+            <div class="col-md-2 sidebar" style="height: 569px;">
+                <ul>
+                    <a href="dashboard.html">
+                        <li class="active"><i class="fa fa-home" aria-hidden="true"></i>&nbsp; Home</li>
+                    </a>
+                    <a href="products.html">
+                        <li><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Create Products</li>
+                    </a>
+                    <a href="changepass.html">
+                        <li><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Change Password</li>
+                    </a>
+                </ul>
+            </div>
+            <!--End include sidebar file-->
+
+            <div class="col-md-10">
+                <h3 class="text-danger">Change Password</h3>
+                <div class="breadcrumb">
+                    <span><i class="fa fa-home" aria-hidden="true"></i>&nbsp; Home &nbsp; &gt; &nbsp; Change Password
+                    </span>
+                </div>
+
+                <!--Start Change Password-->
+                <div class="col-md-6 col-md-offset-3 margin-top well well-lg">
+                    <h3 class="text-center text-primary">Change Password</h3>
+                    <div class="text-center text-success pwdsucc"></div>
+                    <div class="text-center text-danger pwderr"></div>
+                    <form id="change_password" method="post" action="">
+                        <div class="form-group">
+                            <label for="oldpwd" class="col-md-4">Old Password:</label>
+                            <input type="password" name="oldPassword" id="oldpwd" class="form-control" required="">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="newpwd" class="col-md-4">New Password:</label>
+                            <input type="password" name="newPassword" id="newpwd" class="form-control" required="">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="conpwd" class="col-md-4">Confirm Password:</label>
+                            <input type="password" name="confirmPassword" id="conpwd" class="form-control" required="">
+                        </div>
+
+                        <div class="col-md-12">
+                            <button type="submit" name="submit" value="Change Password"
+                                class="form-control btn btn-primary white"><i class="fa fa-key" aria-hidden="true"></i>
+                                &nbsp; Change Password</button>
+                        </div>
+                    </form>
+                </div>
+                <!--End Change Password-->
+
+            </div>
+        </div>
+    </div>
+
+    <script src="logout.js"></script>
+    <script>
+        const changePassword = (event) => {
+            event.preventDefault(); // prevent form submission
+
+            const oldPwd = document.getElementById("oldpwd").value;
+            const newPwd = document.getElementById("newpwd").value;
+            const conPwd = document.getElementById("conpwd").value;
+
+            if (newPwd !== conPwd) {
+                document.querySelector(".pwderr").innerHTML =
+                    "New password and confirm password do not match";
+                return;
+            }
+
+            const token = localStorage.getItem("token");
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://localhost:5000/api/changePassword");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader("Authorization", `Bearer ${token}`);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        const response = JSON.parse(xhr.responseText);
+                        document.querySelector(".pwdsucc").innerHTML = response.message;
+                        setTimeout(() => {
+                            window.location.href = "dashboard.html";
+                        }, 1000);
+                    } else {
+                        const response = JSON.parse(xhr.responseText);
+                        document.querySelector(".pwderr").innerHTML = response.error;
+                    }
+                }
+            };
+            const body = JSON.stringify({ oldPassword: oldPwd, newPassword: newPwd, confirmPassword: conPwd });
+            xhr.send(body);
+        };
+
+        const form = document.getElementById("change_password");
+        form.addEventListener("submit", changePassword);
+
+    </script>
+
+</body>
+
+</html>

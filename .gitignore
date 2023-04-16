@@ -1,0 +1,9 @@
+# Node Module Folder
+node_modules
+
+# Env File
+.env
+
+# Package-Json
+package-lock.json
+
